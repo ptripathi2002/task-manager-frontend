@@ -29,7 +29,7 @@ const TaskList = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await axios.get(URL + "api/tasks");
+      const { data } = await axios.get(URL + "api/tasks/");
       setTasks(data);
       setIsLoading(false);
     } catch (error) {
@@ -48,7 +48,7 @@ const TaskList = () => {
       return toast.error("First Enter the Task");
     }
     try {
-      await axios.post(URL + `api/tasks`, formData);
+      await axios.post(URL + `api/tasks/`, formData);
       toast.success("Task Added Successfully");
       setFormData({ ...formData, name: "" });
       getTasks();
